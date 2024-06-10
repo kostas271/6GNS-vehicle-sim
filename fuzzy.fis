@@ -1,0 +1,88 @@
+[System]
+Name='fuzzy'
+Type='mamdani'
+Version=2.0
+NumInputs=4
+NumOutputs=1
+NumRules=36
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='num_bs_lb'
+Range=[0 10]
+NumMFs=3
+MF1='low':'trimf',[-1 1 1.95]
+MF2='medium':'trimf',[1.95 3 4.95]
+MF3='high':'trimf',[4.95 7 10]
+
+[Input2]
+Name='num_bs_rb'
+Range=[0 10]
+NumMFs=3
+MF1='low':'trimf',[-1 1 1.95]
+MF2='medium':'trimf',[1.95 3 4.95]
+MF3='high':'trimf',[4.95 7 10]
+
+[Input3]
+Name='num_ua_lb'
+Range=[0 10]
+NumMFs=2
+MF1='not_available':'trimf',[-1 0 0.95]
+MF2='available':'trimf',[0.95 5 10]
+
+[Input4]
+Name='num_ua_rb'
+Range=[0 10]
+NumMFs=2
+MF1='not_available':'trimf',[-1 0 0.95]
+MF2='available':'trimf',[0.95 5 10]
+
+[Output1]
+Name='prob'
+Range=[1 3]
+NumMFs=3
+MF1='gNB_prob':'trimf',[0.5 1 1.5]
+MF2='UAV_prob':'trimf',[1.5 2 2.5]
+MF3='V2V_prob':'trimf',[2.5 3 3.5]
+
+[Rules]
+3 3 2 2, 1 (1) : 1
+3 3 2 1, 1 (1) : 1
+3 3 1 2, 1 (1) : 1
+3 3 1 1, 1 (1) : 1
+3 2 2 2, 2 (1) : 1
+3 2 1 2, 3 (1) : 1
+3 2 2 1, 3 (1) : 1
+3 2 1 1, 3 (1) : 1
+3 1 2 2, 2 (1) : 1
+3 1 1 2, 3 (1) : 1
+3 1 2 1, 3 (1) : 1
+3 1 1 1, 3 (1) : 1
+2 3 2 2, 2 (1) : 1
+2 3 2 1, 3 (1) : 1
+2 3 1 2, 3 (1) : 1
+2 3 1 1, 3 (1) : 1
+2 2 2 2, 2 (1) : 1
+2 2 1 2, 3 (1) : 1
+2 2 2 1, 3 (1) : 1
+2 2 1 1, 3 (1) : 1
+2 1 2 2, 2 (1) : 1
+2 1 1 2, 3 (1) : 1
+2 1 2 1, 3 (1) : 1
+2 1 1 1, 3 (1) : 1
+1 3 2 2, 2 (1) : 1
+1 3 2 1, 3 (1) : 1
+1 3 1 2, 3 (1) : 1
+1 3 1 1, 3 (1) : 1
+1 2 2 2, 2 (1) : 1
+1 2 1 2, 3 (1) : 1
+1 2 2 1, 3 (1) : 1
+1 2 1 1, 3 (1) : 1
+1 1 2 2, 2 (1) : 1
+1 1 1 2, 3 (1) : 1
+1 1 2 1, 3 (1) : 1
+1 1 1 1, 3 (1) : 1
